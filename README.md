@@ -1,4 +1,4 @@
-# end-user-computing
+# End-user-computing-course
 Problem statement:
 
 Solution:
