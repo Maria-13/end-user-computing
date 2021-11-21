@@ -14,10 +14,18 @@
   </head>
 
   <body>
-
+  
+        <form action="/action_page.php">
+          <label for="fname">First name:</label>
+          <input type="text" id="fname" name="fname"><br><br>
+          <label for="lname">Last name:</label>
+          <input type="text" id="lname" name="lname"><br><br>
+          <input type="submit" value="Submit">
+        </form>
+        
     <div class="container">
 
-      <h2>HABITS</h2>
+      <h3>HABITS</h3>
 
       <p></p>
 
@@ -84,10 +92,6 @@
 
     </div>
 
-
-
-
-    <script src="./app.js"></script>
 
   </body>
 
