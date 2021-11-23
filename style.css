@@ -1,516 +1,187 @@
 WRAPPER */
-8
-​
-9
+
 .wrapper {
-10
+
   display: grid;
-11
+
   grid-template-rows: 70px 1fr 70px;
-12
+
   grid-template-columns: 1fr;
-13
+
   grid-template-areas: "sidebar"
-14
                        "content";
-15
   width: 100vw; /* unnecessary, but let's keep things consistent */
-16
   height: 100vh;
-17
 }
-18
-​
-19
+
 @media screen and (min-width: 850px) {
-20
   .wrapper {
-21
     grid-template-columns: 200px 5fr;
-22
     grid-template-rows: 1fr;
-23
     grid-template-areas: "sidebar content";
-24
   }
-25
 }
-26
-​
-27
-​
-28
-​
-29
 /* SIDEBAR */
-30
-​
-31
+
 main {
-32
   grid-area: content;
-33
   padding: 48px;
-34
 }
-35
-​
-36
 sidebar {
-37
   grid-area: sidebar;
-38
   display: grid;
-39
   grid-template-columns: 1fr 3fr 1fr;
-40
   grid-template-rows: 3fr 1fr;
-41
-  grid-template-areas: "logo menu avatar"
-42
-                       "copyright menu avatar";
-43
 }
-44
-.logo {
-45
-  display: flex;
-46
-  align-items: center;
-47
-  justify-content: center;
-48
-}
-49
-.copyright {
-50
-  text-align: center;
-51
-}
-52
-.avatar {
-53
-  grid-area: avatar;
-54
-  display: flex;
-55
-  align-items: center;
-56
-  flex-direction: row-reverse;
-57
-}
-58
-.avatar__name {
-59
-  flex: 1;
-60
-  text-align: right;
-61
-  margin-right: 1em;
-62
-}
-63
-.avatar__img > img {
-64
-  display: block;
-65
-}
-66
-​
-67
-.copyright {
-68
-  grid-area: copyright;
-69
-}
-70
-.menu {
-71
-  grid-area: menu;
-72
-  display: flex;
-73
-  align-items: center;
-74
-  justify-content: space-evenly;
-75
-}
-76
-.logo {
-77
-  grid-area: logo;
-78
-}
-79
+
 .menu__text {
-80
   display: none;
-81
 }
-82
-​
-83
 @media screen and (min-width: 850px) {
-84
   sidebar {
-85
     grid-template-areas: "logo"
-86
                          "avatar"
-87
                          "menu"
-88
                          "copyright";
-89
     grid-template-columns: 1fr;
-90
     grid-template-rows: 50px auto 1fr 50px;
-91
   }
-92
-  
-93
   .menu {
-94
     flex-direction: column;
-95
     align-items: normal;
-96
     justify-content: flex-start;
-97
   }
-98
   .menu__text {
-99
     display: inline-block;
-100
   }
-101
   .avatar {
-102
     flex-direction: column;
-103
   }
-104
   .avatar__name {
-105
     margin: 1em 0;
-106
   }
-107
   .avatar__img > img {
-108
     border-radius: 50%;
-109
   }
-110
 }
-111
-​
-112
-​
-113
-​
-114
-​
-115
 /* MAIN */
-116
-​
-117
 .toolbar{
-118
   display: flex;
-119
   justify-content: space-between;
-120
   align-items: center;
-121
   margin-bottom: 24px;
-122
 }
-123
 .calendar{}
-124
-​
-125
 .calendar__week,
-126
 .calendar__header {
-127
   display: grid;
-128
   grid-template-columns: repeat(7, 1fr);  
-129
 }
-130
 .calendar__week {
-131
   grid-auto-rows: 100px;
-132
   text-align: right;
-133
 }
-134
-​
-135
 .calendar__header {
-136
   grid-auto-rows: 50px;
-137
   align-items: center;
-138
   text-align: center;
-139
 }
-140
-​
-141
 .calendar__day {
-142
   padding: 16px;
-143
 }
-144
-​
-145
-​
-146
-​
-147
-​
-148
 /* COSMETIC STYLING */
-149
-​
-150
 :root {
-151
   --red: #ED5454;
-152
 }
-153
-​
-154
 body {
-155
   font-family: Montserrat;
-156
   font-weight: 100;
-157
   color: #A8B2B9;
   }
-159
-​
-160
 sidebar {
-161
   background-color: white;
-162
   box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.2);
-163
 }
-164
-​
-165
 main {
-166
   background-color: #FCFBFC;
-167
 }
-168
-​
-169
 .avatar__name {
-170
   font-size: 0.8rem;
-171
 }
-172
-​
-173
 .menu__item {
-174
   text-transform: uppercase;
-175
   font-size: 0.7rem;
-176
   font-weight: 500;
-177
   padding: 16px 16px 16px 14px;
-178
   border-left: 4px solid transparent;
-179
   color: inherit;
-180
   text-decoration: none;
-181
   transition: color ease 0.3s;
-182
 }
-183
-​
-184
 .menu__item--active .menu__icon {
-185
   color: var(--red);
-186
 }
-187
 .menu__item--active .menu__text {
-188
   color: black;
-189
 }
-190
-​
-191
 .menu__item:hover {
-192
   color: black;
-193
 }
-194
-​
-195
-​
-196
 .menu__icon {
-197
   font-size: 1.3rem;
-198
 }
-199
-​
-200
 @media screen and (min-width: 850px) {
-201
   .menu__icon {
-202
     font-size: 0.9rem;
-203
     padding-right: 16px;
-204
   }
-205
   .menu__item--active {
-206
     border-left: 4px solid var(--red);
-207
     box-shadow: inset 10px 0px 17px -13px var(--red);
-208
   }
-209
 }
-210
-​
-211
-.copyright {
-212
-  font-size: 0.7rem;
-213
-  font-weight: 400;
-214
-}
-215
-​
-216
 .calendar {
-217
   background-color: white;
-218
   border: 1px solid #e1e1e1;
-219
 }
-220
-​
-221
 .calendar__header > div {
-222
   text-transform: uppercase;
-223
   font-size: 0.8em;
-224
   font-weight: bold;
-225
 }
-226
-​
-227
 .calendar__day {
-228
   border-right: 1px solid #e1e1e1;
-229
   border-top: 1px solid #e1e1e1;
-230
 }
-231
-​
-232
 .calendar__day:last-child {
-233
   border-right: 0;
-234
 }
-235
-​
-236
 .toggle{
-237
   display: grid;
-238
   grid-template-columns: 1fr 1fr;
-239
-​
-240
   text-align: center;
-241
   font-size: 0.9em;
-242
 }
-243
 .toggle__option{
-244
   padding: 16px;
-245
   border: 1px solid #e1e1e1;
-246
   border-radius: 8px;
-247
   text-transform: capitalize;
-248
   cursor: pointer;
-249
 }
-250
 .toggle__option:first-child {
-251
     border-top-right-radius: 0;
-252
     border-bottom-right-radius: 0;
-253
 }
-254
 .toggle__option:last-child {
-255
     border-left: 0;
-256
     border-top-left-radius: 0;
-257
     border-bottom-left-radius: 0;
-258
 }
-259
 .toggle__option--selected{
-260
   border-color: white;
-261
   background-color: white;
-262
   color: var(--red);
-263
   font-weight: 500;
-264
   box-shadow: 1px 2px 30px -5px var(--red);
-265
 }
